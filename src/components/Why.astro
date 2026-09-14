@@ -1,52 +1,121 @@
 ---
 const base = import.meta.env.BASE_URL;
+
+// 01's locked paragraph, split into the four chunks that arrive with each photo.
+// "tt" = title-weight word, "b" = species name (bold). Wording is unchanged from the source copy.
+const legendChunks = [
+  [
+    { t: 'Cross-species', c: 'tt' }, { t: 'collaboration', c: 'tt' }, { t: 'is', c: 'tt' },
+    { t: 'nothing', c: 'tt' }, { t: 'new.', c: 'tt' },
+    { t: 'Honeyguides', c: 'b' }, { t: 'lead' }, { t: 'hunters.' },
+    { t: 'Dolphins', c: 'b' }, { t: 'signal' }, { t: 'when' }, { t: 'to' }, { t: 'cast.' },
+  ],
+  [
+    { t: 'Cormorants', c: 'b' }, { t: 'and' },
+  ],
+  [
+    { t: 'hunting' }, { t: 'eagles', c: 'b' }, { t: 'have' }, { t: 'worked' }, { t: 'under' },
+    { t: 'human' }, { t: 'command' }, { t: 'for' }, { t: 'centuries.' },
+  ],
+  [
+    { t: 'Homing', c: 'b' }, { t: 'pigeons', c: 'b' }, { t: 'carried' }, { t: 'addressed' }, { t: 'messages.' },
+    { t: 'Each' }, { t: 'was' }, { t: 'a' }, { t: 'real' }, { t: 'protocol' }, { t: '—' },
+    { t: 'precise,' }, { t: 'effective,' }, { t: 'but' }, { t: 'hard' }, { t: 'to' }, { t: 'scale.' },
+  ],
+];
+
+function renderWords(words: { t: string; c?: string }[]) {
+  return words
+    .map((w, i) => `<span class="ww${w.c ? ' ww-' + w.c : ''}" data-i="${i}">${w.t}</span>`)
+    .join(' ');
+}
+
+const photos = [
+  { src: 'why-dolphin-fishing.png', alt: 'Dolphins herding fish toward fishermen at dawn', tag: 'Dolphin' },
+  { src: 'why-cormorant-fishing.png', alt: 'Cormorant fisherman with lantern at night', tag: 'Cormorant' },
+  { src: 'why-eagle-hunter.png', alt: 'Eagle hunter with golden eagle on horseback', tag: 'Golden eagle' },
+  { src: 'why-homing-pigeon.png', alt: 'Homing pigeon carrying a message', tag: 'Homing pigeon' },
+];
 ---
 
-<!-- ============ WHY — Breathing Section ============ -->
+<!-- ============ WHY NOW — Spotlight Build ============ -->
 <section id="why" class="why-section">
   <div class="why-top-label"><span>Why Now</span></div>
-  <div class="why-line-track"><div class="why-line-fill" id="why-line-fill"></div></div>
-  <div class="why-spine">
-    <div class="why-items" id="why-items">
-      <div class="why-item why-left" data-why-idx="0">
-        <div class="why-dot"></div>
-        <div class="why-content">
-          <h3>Cross-species collaboration is nothing new.</h3>
-          <p>Honeyguides lead hunters. Dolphins signal when to cast. Cormorants and hunting eagles have worked under human command for centuries. Homing pigeons carried addressed messages. Each was a real protocol — precise, effective, but hard to scale.</p>
+
+  <div class="why-pin" id="why-pin">
+    <div class="why-stage" id="why-stage">
+      <div class="why-canvas" id="why-canvas">
+        <div class="why-grid-bg" aria-hidden="true"></div>
+
+        <figure class="why-photo" data-idx="0" id="why-photo-0">
+          <img src={`${base}images/${photos[0].src}`} alt={photos[0].alt} loading="lazy" />
+          <figcaption class="why-photo-tag">01 · {photos[0].tag}</figcaption>
+        </figure>
+        <div class="why-legend-slot why-legend-slot-0">
+          <p class="why-legend-p" data-chunk="0" set:html={renderWords(legendChunks[0])} />
         </div>
-        <div class="why-illustration why-ill-right">
-          <img src={`${base}images/why-dolphin-fishing.png`} alt="Fishermen casting a net alongside dolphins" loading="lazy" />
+
+        <figure class="why-photo" data-idx="1" id="why-photo-1">
+          <img src={`${base}images/${photos[1].src}`} alt={photos[1].alt} loading="lazy" />
+          <figcaption class="why-photo-tag">01 · {photos[1].tag}</figcaption>
+        </figure>
+        <div class="why-legend-slot why-legend-slot-1">
+          <p class="why-legend-p" data-chunk="1" set:html={renderWords(legendChunks[1])} />
         </div>
-      </div>
-      <div class="why-item why-right" data-why-idx="1">
-        <div class="why-dot"></div>
-        <div class="why-illustration why-ill-left">
-          <img src={`${base}images/why-cormorant-fishing.png`} alt="Cormorant fisherman with lantern at night" loading="lazy" />
+
+        <figure class="why-photo" data-idx="2" id="why-photo-2">
+          <img src={`${base}images/${photos[2].src}`} alt={photos[2].alt} loading="lazy" />
+          <figcaption class="why-photo-tag">01 · {photos[2].tag}</figcaption>
+        </figure>
+        <div class="why-legend-slot why-legend-slot-2">
+          <p class="why-legend-p" data-chunk="2" set:html={renderWords(legendChunks[2])} />
         </div>
-        <div class="why-content">
+
+        <figure class="why-photo" data-idx="3" id="why-photo-3">
+          <img src={`${base}images/${photos[3].src}`} alt={photos[3].alt} loading="lazy" />
+          <figcaption class="why-photo-tag">01 · {photos[3].tag}</figcaption>
+        </figure>
+        <div class="why-legend-slot why-legend-slot-3">
+          <p class="why-legend-p" data-chunk="3" set:html={renderWords(legendChunks[3])} />
+        </div>
+
+        <svg class="why-rx-svg" id="why-rx-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line class="why-rx-line" data-idx="0" x1="20" y1="26" x2="50" y2="47" pathLength="100"></line>
+          <line class="why-rx-line" data-idx="1" x1="20" y1="74" x2="50" y2="47" pathLength="100"></line>
+          <line class="why-rx-line" data-idx="2" x1="80" y1="74" x2="50" y2="47" pathLength="100"></line>
+          <line class="why-rx-line" data-idx="3" x1="80" y1="24" x2="50" y2="47" pathLength="100"></line>
+        </svg>
+        <div class="why-rx" id="why-rx" aria-hidden="true"></div>
+
+        <div class="why-tags" id="why-tags">
+          <span>calls</span><span>gaits</span><span>stripe patterns</span><span>water chemistry</span>
+        </div>
+
+        <div class="why-annot why-annot-02" id="why-annot-02">
+          <div class="why-annot-num">02</div>
           <h3>The signals were never the issue. The network was.</h3>
           <p>Calls, gaits, stripe patterns, water quality, temperature — animals and ecosystems have been broadcasting all of this for millions of years. What has always been missing is just the receiver: a shared network that connects them all.</p>
         </div>
-      </div>
-      <div class="why-item why-left" data-why-idx="2">
-        <div class="why-dot"></div>
-        <div class="why-content">
+
+        <div class="why-annot why-annot-03" id="why-annot-03">
+          <div class="why-annot-num">03</div>
           <h3>Now the missing layer is finally here.</h3>
           <p>Edge AI, open-source hardware, and low-power mesh networks have crossed a threshold. For the first time, we can listen at scale — and those old handshakes can become a network.</p>
         </div>
-        <div class="why-illustration why-ill-right">
-          <img src={`${base}images/why-eagle-hunter.png`} alt="Eagle hunter with golden eagle on horseback" loading="lazy" />
-        </div>
-      </div>
-      <div class="why-item why-right" data-why-idx="3">
-        <div class="why-dot"></div>
-        <div class="why-illustration why-ill-left">
-          <img src={`${base}images/why-homing-pigeon.png`} alt="Homing pigeon carrying a message" loading="lazy" />
-        </div>
-        <div class="why-content">
+
+        <div class="why-annot why-annot-04" id="why-annot-04">
+          <div class="why-annot-num">04</div>
           <h3>We don't speak for animals. We build the tools that let them be heard.</h3>
           <p>Seeed is not a lab that speaks for animals. We build the open-source hardware that lets researchers and local teams turn those signals into useful knowledge — so any species, any ecosystem, can finally be heard.</p>
         </div>
+      </div>
+
+      <div class="why-rail" id="why-rail" aria-hidden="true">
+        {photos.map((p, i) => (
+          <div class="why-rail-item" data-idx={i}>
+            <img src={`${base}images/${p.src}`} alt="" />
+          </div>
+        ))}
       </div>
     </div>
   </div>
@@ -71,37 +140,159 @@ const base = import.meta.env.BASE_URL;
 </div>
 
 <script>
-// ===== WHY section scroll animation =====
-(function initWhyScroll(){
-  var whySec=document.getElementById('why');if(!whySec)return;
-  var fill=document.getElementById('why-line-fill');if(!fill)return;
-  var items=document.querySelectorAll('.why-item');
-  var dots=document.querySelectorAll('.why-dot');
-  var contents=document.querySelectorAll('.why-content');var illus=document.querySelectorAll('.why-illustration');
-  var rafId=null;
-  function updateWhy(){
-    rafId=null;
-    var rect=whySec.getBoundingClientRect();
-    var winH=window.innerHeight;
-    var total=rect.height+winH*0.3;
-    var passed=winH*0.5-rect.top;
-    var progress=Math.max(0,Math.min(1,passed/total));
-    fill.style.height=(progress*100)+'%';
-    var itemStep=1/(items.length+0.5);
-    for(var i=0;i<items.length;i++){
-      var threshold=(i+0.5)*itemStep;
-      if(progress>=threshold){
-        if(!dots[i].classList.contains('active')){dots[i].classList.add('active');}
-        if(!contents[i].classList.contains('active')){contents[i].classList.add('active');}if(illus[i]&&!illus[i].classList.contains('active')){illus[i].classList.add('active');}
+// ===== WHY NOW — spotlight build scroll choreography =====
+(function initWhySpotlight(){
+  var pin = document.getElementById('why-pin'); if(!pin) return;
+  var canvas = document.getElementById('why-canvas'); if(!canvas) return;
+  var isDesktop = function(){ return window.matchMedia('(min-width:901px)').matches; };
+
+  // act boundaries, in % of the pin's scroll range: [start0, start1 ... start8]
+  var ACTS = [0,4,18,34,50,64,76,88,100];
+  var lerp = function(a,b,t){ return a+(b-a)*t; };
+  var clamp01 = function(v){ return v<0?0:(v>1?1:v); };
+
+  var photos = [0,1,2,3].map(function(i){
+    return {
+      el: document.getElementById('why-photo-'+i),
+      stageAct: i+1,
+      last: i===3
+    };
+  });
+
+  // wall anchors: [left%, top%, width%, rotateDeg]
+  var WALL = [
+    [4, 8, 32, -4],
+    [3, 55, 34, 3],
+    [66, 55, 30, 3],
+    [68, 6, 28, -3]
+  ];
+  var STAGE = [50, 46, 55, 0]; // centered, translate handled separately
+
+  function photoStyle(i, v){
+    // v: 0 = hidden, 0..1 = hidden->stage, 1..2 = stage->wall, 2 = wall
+    var el = photos[i].el; if(!el) return;
+    var w = WALL[i];
+    var left, top, width, rot, opacity, z;
+    if(v<=0){
+      left=STAGE[0]; top=STAGE[1]+6; width=STAGE[2]*0.7; rot=0; opacity=0; z=5;
+    } else if(v<1){
+      var t=v;
+      left=STAGE[0]; top=lerp(STAGE[1]+6,STAGE[1],t); width=lerp(STAGE[2]*0.7,STAGE[2],t); rot=0; opacity=t; z=20;
+    } else if(v<2){
+      var t2=v-1;
+      left=lerp(STAGE[0],w[0]+w[2]/2,t2);
+      top=lerp(STAGE[1],w[1]+ (w[2]*0.667)/2 ,t2);
+      width=lerp(STAGE[2],w[2],t2);
+      rot=lerp(0,w[3],t2);
+      opacity=1; z=15;
+    } else {
+      left=w[0]+w[2]/2; top=w[1]+(w[2]*0.667)/2; width=w[2]; rot=w[3]; opacity=1; z=10-i;
+    }
+    el.style.left = left+'%';
+    el.style.top = top+'%';
+    el.style.width = width+'%';
+    el.style.opacity = String(opacity);
+    el.style.zIndex = String(z);
+    el.style.transform = 'translate(-50%,-50%) rotate('+rot+'deg)';
+    el.classList.toggle('is-staging', v>0 && v<2);
+  }
+
+  function photoV(i, P){
+    var actStart = ACTS[photos[i].stageAct];
+    var actEnd = ACTS[photos[i].stageAct+1];
+    var len = actEnd-actStart;
+    var hiddenEnd, stageReached, wallStart, wallReached;
+    if(photos[i].last){
+      hiddenEnd = actStart+0.4*len;
+      stageReached = actStart+0.7*len;
+      wallStart = stageReached;
+      wallReached = actEnd;
+    } else {
+      hiddenEnd = actStart+0.15*len;
+      stageReached = actStart+0.6*len;
+      var nextLen = ACTS[photos[i].stageAct+2]-ACTS[photos[i].stageAct+1];
+      wallStart = actEnd;
+      wallReached = actEnd+0.4*nextLen;
+    }
+    if(P<=hiddenEnd) return 0;
+    if(P<stageReached) return clamp01((P-hiddenEnd)/(stageReached-hiddenEnd));
+    if(P<wallStart) return 1;
+    if(P<wallReached) return 1+clamp01((P-wallStart)/(wallReached-wallStart));
+    return 2;
+  }
+
+  var legendBlocks = [0,1,2,3].map(function(i){
+    var p = document.querySelector('.why-legend-p[data-chunk="'+i+'"]');
+    return { words: p ? p.querySelectorAll('.ww') : [], revealed: 0 };
+  });
+
+  function revealLegend(P){
+    for(var i=0;i<4;i++){
+      var actStart = ACTS[i+1], actEnd = ACTS[i+2];
+      var local = clamp01((P-actStart)/(actEnd-actStart));
+      var block = legendBlocks[i];
+      var target = Math.floor(local*block.words.length);
+      if(target>block.revealed){
+        for(var w=block.revealed; w<target; w++){ block.words[w].classList.add('vis'); }
+        block.revealed = target;
       }
     }
   }
-  function onScroll(){
-    if(rafId)return;
-    rafId=requestAnimationFrame(updateWhy);
+
+  var annot02 = document.getElementById('why-annot-02');
+  var annot03 = document.getElementById('why-annot-03');
+  var annot04 = document.getElementById('why-annot-04');
+  var tags = document.getElementById('why-tags');
+  var rx = document.getElementById('why-rx');
+  var rxLines = document.querySelectorAll('.why-rx-line');
+  var railItems = document.querySelectorAll('.why-rail-item');
+
+  function reveal(el, on){ if(el && on && !el.classList.contains('vis')) el.classList.add('vis'); }
+
+  var maxP = 0;
+  var rafId = null;
+
+  function update(){
+    rafId = null;
+    if(!isDesktop()) return;
+    var rect = pin.getBoundingClientRect();
+    var pinHeight = pin.offsetHeight - window.innerHeight;
+    if(pinHeight<=0) return;
+    var scrolled = -rect.top;
+    var raw = clamp01(scrolled/pinHeight)*100;
+    maxP = Math.max(maxP, raw);
+    var P = maxP;
+
+    for(var i=0;i<4;i++){ photoStyle(i, photoV(i,P)); }
+    revealLegend(P);
+
+    reveal(tags, P>=ACTS[5]);
+    reveal(annot02, P>=ACTS[5]);
+    reveal(annot03, P>=ACTS[6]);
+    reveal(annot04, P>=ACTS[7]);
+
+    if(P>=ACTS[6]){
+      rx.classList.add('armed');
+      var drawFrac = clamp01((P-ACTS[6])/(ACTS[7]-ACTS[6]));
+      rxLines.forEach(function(line, idx){
+        var local = clamp01((drawFrac-idx*0.15)/0.4);
+        line.style.strokeDashoffset = String(100-local*100);
+      });
+    }
+    if(P>=ACTS[7]){ rx.classList.add('lit'); }
+
+    var currentIdx = 0;
+    for(var a=1;a<=4;a++){ if(P>=ACTS[a]) currentIdx=a-1; }
+    railItems.forEach(function(item){
+      var idx = Number(item.getAttribute('data-idx'));
+      item.classList.toggle('active', idx===currentIdx);
+      if(idx<=currentIdx) item.classList.add('seen');
+    });
   }
-  window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',onScroll,{passive:true});
-  setTimeout(updateWhy,100);
+
+  function onScroll(){ if(rafId) return; rafId = requestAnimationFrame(update); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+  setTimeout(update, 100);
 })();
 </script>
