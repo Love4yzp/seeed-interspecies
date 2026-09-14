@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
 
 <!-- ============ WHY — Breathing Section ============ -->
@@ -11,84 +12,40 @@
         <div class="why-dot"></div>
         <div class="why-content">
           <h3>Cross-species collaboration is nothing new.</h3>
-          <p>The honeyguide leads humans to honey. Dolphins herd fish toward waiting fishermen in Brazil. These partnerships have run for centuries — but always one relationship at a time, master to apprentice, impossible to scale.</p>
+          <p>Honeyguides lead hunters. Dolphins signal when to cast. Cormorants and hunting eagles have worked under human command for centuries. Homing pigeons carried addressed messages. Each was a real protocol — precise, effective, but hard to scale.</p>
         </div>
         <div class="why-illustration why-ill-right">
-          <svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M60 70c0-8 6-14 14-14s14 6 14 14" stroke="#8FC31F"/>
-            <path d="M74 56c2-6 8-10 14-8l-2 8c-4-2-8 0-12 0z" fill="#8FC31F" fill-opacity=".15" stroke="#8FC31F"/>
-            <circle cx="80" cy="66" r="2" fill="#8FC31F" stroke="none"/>
-            <path d="M88 74l6-2M88 78l6 0M86 82l4 2" stroke="#8FC31F"/>
-            <path d="M100 90c-8 0-16 4-20 12M110 95c-6 2-12 6-14 12" stroke="#6fa816" stroke-dasharray="3 3"/>
-            <path d="M120 110c6 2 12 4 18 4M138 114c4 0 8-1 10-3" stroke="#00936d"/>
-            <path d="M148 111l8-4 2 6-6 4z" fill="#00936d" fill-opacity=".1" stroke="#00936d"/>
-            <path d="M156 107l4-2M158 113l4 0" stroke="#00936d"/>
-            <path d="M50 100c4-6 10-10 16-10M52 110c2-4 6-6 10-6" stroke="#8FC31F" stroke-opacity=".4"/>
-          </svg>
+          <img src={`${base}images/why-dolphin-fishing.png`} alt="Fishermen casting a net alongside dolphins" loading="lazy" />
         </div>
       </div>
       <div class="why-item why-right" data-why-idx="1">
         <div class="why-dot"></div>
         <div class="why-illustration why-ill-left">
-          <svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <circle cx="100" cy="80" r="4" fill="#8FC31F" stroke="none"/>
-            <path d="M100 80Q70 50 50 40M100 80Q130 50 150 40M100 80Q70 110 50 120M100 80Q130 110 150 120M100 80Q100 40 100 20M100 80Q100 120 100 140" stroke="#8FC31F" stroke-opacity=".3" stroke-dasharray="2 4"/>
-            <path d="M100 80c-15-10-30-12-45-8M100 80c15-10 30-12 45-8M100 80c-15 10-30 12-45 16M100 80c15 10 30 12 45 16" stroke="#45c4a6" stroke-width="1" stroke-opacity=".5"/>
-            <circle cx="50" cy="40" r="3" fill="#45c4a6" stroke="none" opacity=".6"/>
-            <circle cx="150" cy="40" r="3" fill="#45c4a6" stroke="none" opacity=".6"/>
-            <circle cx="50" cy="120" r="3" fill="#45c4a6" stroke="none" opacity=".6"/>
-            <circle cx="150" cy="120" r="3" fill="#45c4a6" stroke="none" opacity=".6"/>
-            <circle cx="100" cy="20" r="3" fill="#39b5ff" stroke="none" opacity=".5"/>
-            <circle cx="100" cy="140" r="3" fill="#39b5ff" stroke="none" opacity=".5"/>
-            <path d="M44 40v-4M150 36v4M44 120v4M150 116v4M96 20h4M96 140h4" stroke="#8FC31F" stroke-opacity=".5"/>
-          </svg>
+          <img src={`${base}images/why-cormorant-fishing.png`} alt="Cormorant fisherman with lantern at night" loading="lazy" />
         </div>
         <div class="why-content">
-          <h3>Signals are everywhere. We've been missing most of them.</h3>
-          <p>Calls, gaits, stripe patterns, water quality, temperature — animals and ecosystems have been broadcasting data for millions of years. Until now, we could receive only a tiny fraction.</p>
+          <h3>The signals were never the issue. The network was.</h3>
+          <p>Calls, gaits, stripe patterns, water quality, temperature — animals and ecosystems have been broadcasting all of this for millions of years. What has always been missing is just the receiver: a shared network that connects them all.</p>
         </div>
       </div>
       <div class="why-item why-left" data-why-idx="2">
         <div class="why-dot"></div>
         <div class="why-content">
-          <h3>Now, for the first time, we can listen at scale.</h3>
-          <p>Edge AI, open-source hardware, and low-power mesh networks have crossed a threshold. For the first time, listening at scale is possible.</p>
+          <h3>Now the missing layer is finally here.</h3>
+          <p>Edge AI, open-source hardware, and low-power mesh networks have crossed a threshold. For the first time, we can listen at scale — and those old handshakes can become a network.</p>
         </div>
         <div class="why-illustration why-ill-right">
-          <svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="88" y="68" width="24" height="24" rx="4" stroke="#8FC31F"/>
-            <circle cx="100" cy="80" r="3" fill="#8FC31F" stroke="none"/>
-            <path d="M88 74l-14-8M112 74l14-8M88 86l-14 8M112 86l14 8" stroke="#8FC31F" stroke-opacity=".5"/>
-            <circle cx="70" cy="64" r="5" fill="none" stroke="#45c4a6" stroke-opacity=".6"/>
-            <circle cx="130" cy="64" r="5" fill="none" stroke="#45c4a6" stroke-opacity=".6"/>
-            <circle cx="70" cy="96" r="5" fill="none" stroke="#45c4a6" stroke-opacity=".6"/>
-            <circle cx="130" cy="96" r="5" fill="none" stroke="#45c4a6" stroke-opacity=".6"/>
-            <path d="M65 64h-8M135 64h8M65 96h-8M135 96h8" stroke="#39b5ff" stroke-opacity=".4" stroke-dasharray="2 3"/>
-            <path d="M100 68v-12M100 92v12" stroke="#00936d" stroke-opacity=".5" stroke-dasharray="2 3"/>
-            <path d="M96 56h8v4h-8z" stroke="#00936d" stroke-opacity=".5"/>
-            <path d="M92 104h16v4h-16z" stroke="#00936d" stroke-opacity=".5"/>
-          </svg>
+          <img src={`${base}images/why-eagle-hunter.png`} alt="Eagle hunter with golden eagle on horseback" loading="lazy" />
         </div>
       </div>
       <div class="why-item why-right" data-why-idx="3">
         <div class="why-dot"></div>
         <div class="why-illustration why-ill-left">
-          <svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="70" y="50" width="60" height="60" rx="6" stroke="#8FC31F" stroke-opacity=".4"/>
-            <rect x="82" y="62" width="36" height="36" rx="3" stroke="#8FC31F"/>
-            <circle cx="100" cy="80" r="6" fill="#8FC31F" fill-opacity=".15" stroke="#8FC31F"/>
-            <circle cx="100" cy="80" r="2" fill="#8FC31F" stroke="none"/>
-            <path d="M76 62v-8M84 62v-8M92 62v-8M100 62v-8M108 62v-8M116 62v-8M124 62v-8" stroke="#45c4a6" stroke-opacity=".5"/>
-            <path d="M76 98v8M84 98v8M92 98v8M100 98v8M108 98v8M116 98v8M124 98v8" stroke="#45c4a6" stroke-opacity=".5"/>
-            <path d="M70 68h-8M70 76h-8M70 84h-8M70 92h-8" stroke="#39b5ff" stroke-opacity=".4"/>
-            <path d="M130 68h8M130 76h8M130 84h8M130 92h8" stroke="#39b5ff" stroke-opacity=".4"/>
-            <path d="M100 50v-8M100 110v8" stroke="#00936d" stroke-opacity=".5"/>
-            <path d="M88 42h24M88 118h24" stroke="#00936d" stroke-opacity=".4" stroke-dasharray="2 3"/>
-          </svg>
+          <img src={`${base}images/why-homing-pigeon.png`} alt="Homing pigeon carrying a message" loading="lazy" />
         </div>
         <div class="why-content">
           <h3>We don't speak for animals. We build the tools that let them be heard.</h3>
-          <p>Seeed is not a lab that speaks for animals. We build the open-source hardware that lets any species, any ecosystem, finally be heard.</p>
+          <p>Seeed is not a lab that speaks for animals. We build the open-source hardware that lets researchers and local teams turn those signals into useful knowledge — so any species, any ecosystem, can finally be heard.</p>
         </div>
       </div>
     </div>

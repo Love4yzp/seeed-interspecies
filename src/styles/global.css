@@ -200,6 +200,7 @@ html{scroll-behavior:smooth} body{-webkit-font-smoothing:antialiased;background:
 .why-illustration{width:44%;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(8px);transition:opacity .7s ease,transform .7s ease;color:#8FC31F}
 .why-illustration.active{opacity:1;transform:translateY(0)}
 .why-illustration svg{width:140px;height:120px;max-width:100%}
+.why-illustration img{width:100%;max-width:220px;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
 .why-left .why-illustration{margin-left:auto}
 .why-right .why-illustration{margin-right:auto}
 .why-ill-right{margin-left:auto}.why-ill-left{margin-right:auto}
