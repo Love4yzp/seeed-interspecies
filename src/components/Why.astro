@@ -1,66 +1,52 @@
 ---
-import '../styles/why.css';
-const base = import.meta.env.BASE_URL.endsWith('/')
-  ? import.meta.env.BASE_URL
-  : import.meta.env.BASE_URL + '/';
-const photos = [
-  {
-    id: 'dolphin',
-    src: `${base}images/why-dolphin.jpg`,
-    alt: 'Dolphins herd fish toward fishermen casting a net in a Brazilian lagoon at dawn',
-    cap: 'Dolphin · Brazil lagoon',
-    sig: 'calls',
-  },
-  {
-    id: 'cormorant',
-    src: `${base}images/why-cormorant.jpg`,
-    alt: 'A cormorant surfaces with a fish beside a night fishing boat lit by a hanging lantern',
-    cap: 'Cormorant · night fire',
-    sig: 'water chemistry',
-  },
-  {
-    id: 'eagle',
-    src: `${base}images/why-eagle.jpg`,
-    alt: 'A golden eagle perches on a falconer\'s arm against snow-capped mountains at sunset',
-    cap: 'Golden eagle · mountain',
-    sig: 'gaits',
-  },
-  {
-    id: 'pigeon',
-    src: `${base}images/why-pigeon.jpg`,
-    alt: 'A homing pigeon with a message capsule stands on an open hand above a misty old city at sunrise',
-    cap: 'Homing pigeon · message',
-    sig: 'stripes',
-  },
-];
+const base = import.meta.env.BASE_URL;
 ---
 
-<section id="why" class="why-section is-settled" data-scene="7">
-  <div class="why-pin">
-    <div class="why-stage" id="why-stage">
-      <div class="why-grid" aria-hidden="true"></div>
-      <div class="why-drop" id="why-drop" aria-hidden="true"></div>
-      <div class="why-kicker"><span>WHY NOW</span></div>
-
-      <canvas class="why-fx" id="why-fx" aria-hidden="true"></canvas>
-      <svg class="why-svg" id="why-svg" aria-hidden="true">
-        <path id="why-stage-line" class="why-stage-line" />
-        {photos.map((p) => <path class="why-rx-line" data-from={p.id}></path>)}
-        {[1,2,3,4,5,6].map((n) => <path class="why-domain-line" data-d={n}></path>)}
-      </svg>
-
-      {photos.map((p) => (
-        <figure class="why-photo" data-photo={p.id}>
-          <img src={p.src} alt={p.alt} width="1536" height="1024" decoding="async" />
-          <figcaption>{p.cap}</figcaption>
-          <span class="why-sig">{p.sig}</span>
-        </figure>
-      ))}
-
-      <div class="why-rx" id="why-rx">
-        <span class="why-rx-ring"></span>
-        <span class="why-rx-core"></span>
-        <span class="why-rx-label">RX</span>
+<!-- ============ WHY — Breathing Section ============ -->
+<section id="why" class="why-section">
+  <div class="why-top-label"><span>Why Now</span></div>
+  <div class="why-line-track"><div class="why-line-fill" id="why-line-fill"></div></div>
+  <div class="why-spine">
+    <div class="why-items" id="why-items">
+      <div class="why-item why-left" data-why-idx="0">
+        <div class="why-dot"></div>
+        <div class="why-content">
+          <h3>Cross-species collaboration is nothing new.</h3>
+          <p>Honeyguides lead hunters. Dolphins signal when to cast. Cormorants and hunting eagles have worked under human command for centuries. Homing pigeons carried addressed messages. Each was a real protocol — precise, effective, but hard to scale.</p>
+        </div>
+        <div class="why-illustration why-ill-right">
+          <img src={`${base}images/why-dolphin-fishing.png`} alt="Fishermen casting a net alongside dolphins" loading="lazy" />
+        </div>
+      </div>
+      <div class="why-item why-right" data-why-idx="1">
+        <div class="why-dot"></div>
+        <div class="why-illustration why-ill-left">
+          <img src={`${base}images/why-cormorant-fishing.png`} alt="Cormorant fisherman with lantern at night" loading="lazy" />
+        </div>
+        <div class="why-content">
+          <h3>The signals were never the issue. The network was.</h3>
+          <p>Calls, gaits, stripe patterns, water quality, temperature — animals and ecosystems have been broadcasting all of this for millions of years. What has always been missing is just the receiver: a shared network that connects them all.</p>
+        </div>
+      </div>
+      <div class="why-item why-left" data-why-idx="2">
+        <div class="why-dot"></div>
+        <div class="why-content">
+          <h3>Now the missing layer is finally here.</h3>
+          <p>Edge AI, open-source hardware, and low-power mesh networks have crossed a threshold. For the first time, we can listen at scale — and those old handshakes can become a network.</p>
+        </div>
+        <div class="why-illustration why-ill-right">
+          <img src={`${base}images/why-eagle-hunter.png`} alt="Eagle hunter with golden eagle on horseback" loading="lazy" />
+        </div>
+      </div>
+      <div class="why-item why-right" data-why-idx="3">
+        <div class="why-dot"></div>
+        <div class="why-illustration why-ill-left">
+          <img src={`${base}images/why-homing-pigeon.png`} alt="Homing pigeon carrying a message" loading="lazy" />
+        </div>
+        <div class="why-content">
+          <h3>We don't speak for animals. We build the tools that let them be heard.</h3>
+          <p>Seeed is not a lab that speaks for animals. We build the open-source hardware that lets researchers and local teams turn those signals into useful knowledge — so any species, any ecosystem, can finally be heard.</p>
+        </div>
       </div>
 
       <nav class="why-domains" aria-label="Six research domains">
